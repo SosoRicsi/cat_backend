@@ -20,7 +20,7 @@ func main() {
 		log.Fatal(env_error)
 	}
 
-	figure.NewFigure(os.Getenv("APP_NAME"), "isometric1", true).Print()
+	figure.NewFigure(os.Getenv("APP_NAME"), "basic", true).Print()
 
 	database.Init()
 	defer database.DB.Close()
