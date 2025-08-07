@@ -6,7 +6,9 @@ import (
 	"cat_backend/internal/middleware"
 	"log"
 	"net/http"
+	"os"
 
+	"github.com/common-nighthawk/go-figure"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -17,6 +19,8 @@ func main() {
 	if env_error != nil {
 		log.Fatal(env_error)
 	}
+
+	figure.NewFigure(os.Getenv("APP_NAME"), "isometric1", true).Print()
 
 	database.Init()
 	defer database.DB.Close()
