@@ -4,7 +4,6 @@ use App\Config\App;
 use Dotenv\Dotenv;
 use App\src\Logger;
 use Bramus\Router\Router;
-use App\http\middlewares\SecretKey;
 
 require __DIR__ . '/vendor/autoload.php';
 

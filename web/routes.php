@@ -5,6 +5,18 @@ use App\http\Middlewares\SecretKey;
 use App\http\Middlewares\LogRequests;
 use App\http\Controllers\PostController;
 use App\http\Controllers\CategoryController;
+use App\http\Controllers\QuoteController;
+
+$router->get("/quote", function () {
+	if (!SecretKey::authorize()) {
+		http_response_code(403);
+		return false;
+	}
+
+	print LogRequests::log(function () {
+		(new QuoteController)->getRandom();
+	});
+});
 
 $router->get("/v2/post", function () {
 	if (!SecretKey::authorize()) {
